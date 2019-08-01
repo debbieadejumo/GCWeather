@@ -2,12 +2,11 @@ package org.me.gcu.gcweather;
 
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.widget.ArrayAdapter;
+
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -21,21 +20,17 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 
 
-import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.List;
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.View;
+import java.util.concurrent.ExecutionException;
+
 import android.widget.ExpandableListView;
-import android.widget.ExpandableListView.OnChildClickListener;
-import android.widget.ExpandableListView.OnGroupClickListener;
-import android.widget.ExpandableListView.OnGroupCollapseListener;
-import android.widget.ExpandableListView.OnGroupExpandListener;
-import android.widget.Toast;
+
 
 
 
@@ -43,7 +38,6 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     ListView lvRss;
-    ArrayList<String> titles;
     ArrayList<String> weatherDescriptions;
     String[] titlesArray;
     TextView description, temp, minmax, listHeader, listHeaderWeather;
@@ -64,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         temp = (TextView) findViewById(R.id.temp);
         minmax = (TextView) findViewById(R.id.minmax);
 
-        titles = new ArrayList<>();
+//        titles = new ArrayList<>();
         weatherDescriptions = new ArrayList<>();
 //        description = (TextView) findViewById(R.id.description);
 
@@ -78,25 +72,30 @@ public class MainActivity extends AppCompatActivity {
         textDateDisplay.setText(currentDate);
 
 
-        new ProcessInBackground().execute();
+        ProcessInBackground processInBackground = new ProcessInBackground();
+        processInBackground.execute();
+        try {
+            List<String> result = processInBackground.get();
+            prepareListData(result);
+            //prepareListData();
+           expListView = (ExpandableListView) findViewById(R.id.lvExp);
 
+            listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
+//            expListView = new ExpandableListView(this);
+            // setting list adapter
+//        expListView.setAdapter(listAdapter);
+            expListView.setAdapter(listAdapter);
+
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         // get the listview
-        expListView = (ExpandableListView) findViewById(R.id.lvExp);
 
         // preparing list data
 
-        prepareListData();
-
-
-        listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
-
-        // setting list adapter
-        expListView.setAdapter(listAdapter);
-
-
-
-
-
+//        prepareListData();
 
 
 
@@ -117,20 +116,25 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public class ProcessInBackground extends AsyncTask<Void, Void, Exception>{
+    public class ProcessInBackground extends AsyncTask<Context, Void, List<String>>{
         ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
         Exception exception = null;
+        Context context;
+        ArrayList<String> titles;
+
         //before we go into the background
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
+//        @Override
+//        protected void onPreExecute() {
+//            super.onPreExecute();
+//
+//            progressDialog.setMessage("Busy loading weather feed...Please wait :)");
+//            progressDialog.show();
+//        }
 
-            progressDialog.setMessage("Busy loading weather feed...Please wait :)");
-            progressDialog.show();
-        }
-
         @Override
-        protected Exception doInBackground(Void... params) {
+        protected List<String> doInBackground(Context... params) {
+//            context=params[0];
+            titles = new ArrayList<>();
             try {
                 URL url = new URL("https://weather-broker-cdn.api.bbci.co.uk/en/forecast/rss/3day/2648579");
 
@@ -185,15 +189,14 @@ public class MainActivity extends AppCompatActivity {
                 exception = e;
             }
 
-            return exception;
+            return titles;
         }
 
         @Override
-        protected void onPostExecute(Exception s) {
+        protected void onPostExecute(List<String> s) {
             super.onPostExecute(s);
 
-//            ArrayAdapter<String> adapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, titles);
-//            lvRss.setAdapter(adapter);
+
 
             //convert titles array list to an array
             titlesArray = titles.toArray(new String[titles.size()]);
@@ -213,6 +216,7 @@ public class MainActivity extends AppCompatActivity {
 //            minmax.setText(temp_max);
 
 
+//            getCallingActivity().context.
 
 
             progressDialog.dismiss();
@@ -224,44 +228,60 @@ public class MainActivity extends AppCompatActivity {
     /*
      * Preparing the list data
      */
-    private void prepareListData() {
+    private void prepareListData(List<String> titles) {
 
         //Get and set values for next day
-     // String tomorrow = titlesArray[1];
-        //String[] tomorrowValues = tomorrow.split(":|,");
-
+//        titlesArray = titles.toArray(new String[titles.size()]);
+//        System.out.println("LIST OF TITLES");
+//        System.out.println(titlesArray[2]);
+//        System.out.println("0000000000000000000000000000000000000000000000000000000000000000");
+//     String tomorrow = titlesArray[0];
+//    String[] tomorrowValues = tomorrow.split(":|,");
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
 
-        // Adding child data
-        listDataHeader.add("TOMORROW");
-        listDataHeader.add("Now Showing");
-        listDataHeader.add("Coming Soon..");
+        List<String> today = new ArrayList<>();
+        for (String day:
+             titles) {
+            String[] strings=day.split(":");
+            listDataHeader.add(strings[0].trim());
+            listDataChild.put(strings[0].trim(), Arrays.asList(strings[1].trim().split(",")));
+
+
+        }
+//        listDataHeader = titles;
 
         // Adding child data
-        List<String> top250 = new ArrayList<String>();
-        top250.add("The Shawshank Redemption");
-        top250.add("The Godfather");
-        top250.add("The Godfather: Part II");
-        top250.add("Pulp Fiction");
+//        listDataHeader.add(tomorrowValues[0]);
+//        listDataHeader.add("Now Showing");
+//        listDataHeader.add("Coming Soon..");
 
-        List<String> nowShowing = new ArrayList<String>();
-        nowShowing.add("The Conjuring");
-        nowShowing.add("Despicable Me 2");
-        nowShowing.add("Turbo");
-        nowShowing.add("Grown Ups 2");
+        // Adding child data
+//        List<String> top250 = new ArrayList<String>();
+//        top250.add("The Shawshank Redemption");
+//        top250.add("The Godfather");
+//        top250.add("The Godfather: Part II");
+//        top250.add("Pulp Fiction");
 
-
-        List<String> comingSoon = new ArrayList<String>();
-        comingSoon.add("2 Guns");
-        comingSoon.add("The Smurfs 2");
-        comingSoon.add("The Spectacular Now");
-        comingSoon.add("The Canyons");
+//        List<String> nowShowing = new ArrayList<String>();
+//        nowShowing.add("The Conjuring");
+//        nowShowing.add("Despicable Me 2");
+//        nowShowing.add("Turbo");
+//        nowShowing.add("Grown Ups 2");
 
 
-        listDataChild.put(listDataHeader.get(0), top250); // Header, Child data
-        listDataChild.put(listDataHeader.get(1), nowShowing);
-        listDataChild.put(listDataHeader.get(2), comingSoon);
+//        List<String> comingSoon = new ArrayList<String>();
+//        comingSoon.add("2 Guns");
+//        comingSoon.add("The Smurfs 2");
+//        comingSoon.add("The Spectacular Now");
+//        comingSoon.add("Thise Canyons");
+
+
+//        listDataChild.put(listDataHeader.get(0), top250); // Header, Child data
+//        listDataChild.put(listDataHeader.get(1), nowShowing);
+//        listDataChild.put(listDataHeader.get(2), comingSoon);
+
+
     }
 
 
