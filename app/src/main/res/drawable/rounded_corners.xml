@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+    <!--===========================-->
+    <!--   Name: DEBBIE ADEJUMO    -->
+    <!--   Student ID: S1719011    -->
+    <!--===========================-->
+
     <shape xmlns:android="http://schemas.android.com/apk/res/android"
         android:shape="rectangle">
 
         // The width and color of the border
         <stroke
             android:width="1dp"
-            android:color="#64fafafa" />
+            android:color="#64cdcdcd" />
 
         // The desired corner radius. reduce it to keep it less rounded
         <corners android:radius="360dp" />
@@ -16,7 +21,7 @@
             android:left="20dp"
             android:top="8dp"
             android:right="20dp"
-            android:bottom="8dp"    >
+            android:bottom="8dp">
         </padding>
 
     </shape>

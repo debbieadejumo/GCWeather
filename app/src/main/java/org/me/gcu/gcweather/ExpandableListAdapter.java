@@ -1,3 +1,9 @@
+//  ==============================
+//  **  Name: DEBBIE ADEJUMO    **
+//  **  Student ID: S1719011    **
+//  ==============================
+
+
 package org.me.gcu.gcweather;
 
 import java.util.HashMap;
@@ -24,6 +30,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                  HashMap<String, List<String>> listChildData) {
         this._context = context;
         this._listDataHeader = listDataHeader;
+
         this._listDataChild = listChildData;
     }
 
@@ -90,7 +97,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
         TextView lblListHeader = (TextView) convertView
                 .findViewById(R.id.listHeader);
-        lblListHeader.setTypeface(null, Typeface.BOLD);
+        //lblListHeader.setTypeface(null, Typeface.BOLD);
         lblListHeader.setText(headerTitle);
 
         return convertView;

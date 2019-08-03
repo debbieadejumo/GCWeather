@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">GCWeather</string>
     <string name="glasgow_scotland">Glasgow, Scotland</string>
+    <string name="dhaka_bangladesh">Dhaka, Bangladesh</string>
+    <string name="textview">TextView</string>
+    <string name="_23_c">23°c</string>
+    <string name="sunny">SUNNY</string>
+    <string name="_25_20">25 / 20</string>
 </resources>

@@ -8,26 +8,19 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:animationCache="true"
-
-    app:titleTextAppearance="@style/Toolbar.TitleText"
-    tools:context=".MainActivity"
     android:background="@drawable/gradient"
-
-    >
-
+    tools:context=".NairobiActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginEnd="124dp"
         android:fontFamily="@font/raleway"
-        android:text="Glasgow, Scotland"
+        android:text="Nairobi, Kenya"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#FFFFFF"
@@ -108,7 +101,7 @@
 
         android:background="@drawable/rounded_corners"
         app:layout_constraintTop_toBottomOf="@+id/todaysWeatherImage"
-        tools:layout_editor_absoluteX="0dp">
+        tools:layout_editor_absoluteX="28dp">
 
 
         <android.support.constraint.ConstraintLayout
@@ -266,10 +259,9 @@
         android:layout_marginTop="38dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toStartOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.936"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/location" />
-
 
 </android.support.constraint.ConstraintLayout>

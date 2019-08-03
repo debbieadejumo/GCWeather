@@ -41,7 +41,7 @@ import android.widget.ExpandableListView;
 
 
 
-public class MainActivity extends AppCompatActivity {
+public class NewYorkActivity extends AppCompatActivity {
 
 
     String[] titlesArray;
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_new_york);
         todaysWeatherImage=findViewById(R.id.todaysWeatherImage);
         description = findViewById(R.id.description);
         temp = findViewById(R.id.temp);
@@ -92,14 +92,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
     public void onLeftArrowClick(View v){
-        Intent myIntent = new Intent(getBaseContext(), PortLouisActivity.class);
+        Intent myIntent = new Intent(getBaseContext(), NairobiActivity.class);
         startActivity(myIntent);
     }
 
-
     public void onRightArrowClick(View v){
-        Intent myIntent = new Intent(getBaseContext(), BangladeshActivity.class);
+        Intent myIntent = new Intent(getBaseContext(), OmanActivity.class);
         startActivity(myIntent);
     }
 
@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public class ProcessInBackground extends AsyncTask<Context, Void, List<String[]>>{
-        ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
+        ProgressDialog progressDialog = new ProgressDialog(NewYorkActivity.this);
         Exception exception = null;
         ArrayList<String> titles;
         ArrayList<String> weatherDescriptions;
@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
             weatherData= new ArrayList<>();
 
             try {
-                URL url = new URL("https://weather-broker-cdn.api.bbci.co.uk/en/forecast/rss/3day/2648579");
+                URL url = new URL("https://weather-broker-cdn.api.bbci.co.uk/en/forecast/rss/3day/5128581");
 
                 //new instance of xml factory that can be used to create xml pull parsers
                 XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
@@ -260,6 +260,7 @@ public class MainActivity extends AppCompatActivity {
             else if(todaysDescription.contains("Mist")||todaysDescription.contains("mist")){
                 todaysWeatherImage.setImageResource(R.drawable.haze);
             }
+
 
 
             progressDialog.dismiss();
