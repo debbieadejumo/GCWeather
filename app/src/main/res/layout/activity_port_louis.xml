@@ -1,267 +1,288 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <!--===========================-->
-    <!--   Name: DEBBIE ADEJUMO    -->
-    <!--   Student ID: S1719011    -->
-    <!--===========================-->
+<!--===========================-->
+<!--   Name: DEBBIE ADEJUMO    -->
+<!--   Student ID: S1719011    -->
+<!--===========================-->
 
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/gradient"
-    tools:context=".PortLouisActivity">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".PortLouisActivity"
+    >
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="92dp"
-        android:fontFamily="@font/raleway"
-        android:text="Port Louis, Mauritius"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
 
-    <TextView
-        android:id="@+id/text_date_display"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/raleway"
-        android:text="@string/textview"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="#FFFFFF"
-        android:textSize="12sp"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:layout_editor_absoluteX="0dp" />
+        android:layout_height="match_parent"
+        android:animationCache="true"
 
-    <TextView
-        android:id="@+id/temp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:fontFamily="@font/raleway"
-        android:text="@string/_23_c"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="92sp"
-        app:layout_constraintTop_toBottomOf="@+id/text_date_display"
-        tools:layout_editor_absoluteX="0dp" />
+        android:background="@drawable/gradient"
 
-    <TextView
-        android:id="@+id/description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/raleway"
-        android:lineSpacingExtra="8sp"
-        android:text="@string/sunny"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/rightArrow"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/temp" />
+        app:titleTextAppearance="@style/Toolbar.TitleText"
 
-    <ImageView
-        android:id="@+id/todaysWeatherImage"
-        android:layout_width="40dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description"
-        app:srcCompat="@drawable/sunny" />
-
-    <android.support.constraint.Group
-        android:id="@+id/group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        >
 
 
-    <TableLayout
-        android:id="@+id/table1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/raleway"
+            android:text="Port Louis, Mauritius"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        android:background="@drawable/rounded_corners"
-        app:layout_constraintTop_toBottomOf="@+id/todaysWeatherImage"
-        tools:layout_editor_absoluteX="28dp">
+        <TextView
+            android:id="@+id/text_date_display"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/raleway"
+            android:text="@string/textview"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+        <TextView
+            android:id="@+id/temp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/raleway"
+            android:text="@string/_23_c"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="92sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_date_display" />
 
-        <android.support.constraint.ConstraintLayout
-            android:id="@+id/tableRow"
-            android:orientation="vertical">
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/raleway"
+            android:lineSpacingExtra="8sp"
+            android:text="@string/sunny"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/rightArrow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/temp" />
 
+        <ImageView
+            android:id="@+id/todaysWeatherImage"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description"
+            app:srcCompat="@drawable/sunny" />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="113dp"
-                android:layout_height="24dp"
-                android:layout_marginTop="8dp"
-                android:paddingLeft="10dp"
-                app:layout_constraintEnd_toStartOf="@+id/imageView5"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/breeze" />
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="113dp"
-                android:layout_height="24dp"
-                android:paddingRight="4dp"
-                android:textAlignment="center"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/imageView5"
-                app:layout_constraintTop_toTopOf="@+id/imageView5"
-                app:srcCompat="@drawable/thermometer3" />
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="113dp"
-                android:layout_height="24dp"
-                android:paddingLeft="10dp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView"
-                app:layout_constraintEnd_toStartOf="@+id/imageView3"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toTopOf="@+id/imageView"
-                app:srcCompat="@drawable/humidity3" />
-
-        </android.support.constraint.ConstraintLayout>
-
-
-        <TableRow>
-
-
-            <TextView
-                android:id="@+id/windSpeed"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_margin="4dip"
-                android:layout_weight="1"
-
-                android:padding="10dip"
-                android:paddingTop="0dp"
-                android:paddingBottom="0dp"
-                android:text="Sunny"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textColor="#cdcdcd" />
-
-            <TextView
-                android:id="@+id/humidity"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_column="2"
-                android:layout_margin="4dip"
-                android:layout_weight="1"
-
-                android:padding="10dip"
-                android:paddingTop="0dp"
-                android:paddingBottom="0dp"
-                android:text="Sunny"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textColor="#cdcdcd" />
-
-            <TextView
-                android:id="@+id/minmax"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_column="3"
-                android:layout_margin="4dip"
-                android:layout_weight="1"
-                android:padding="10dip"
-                android:paddingTop="0dp"
-                android:paddingBottom="0dp"
-                android:text="25/23"
-                android:textAlignment="center"
-                android:textColor="#cdcdcd" />
-        </TableRow>
+        <android.support.constraint.Group
+            android:id="@+id/group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
 
-    </TableLayout>
+        <TableLayout
+            android:id="@+id/table1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/rounded_corners"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/todaysWeatherImage">
 
 
-    <TextView
-        android:id="@+id/nameFooter"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:background="#111947"
-        android:text="Debbie Adejumo S1719011"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/tableRow"
+                android:orientation="vertical">
 
 
-    <ExpandableListView
-        android:id="@+id/lvExp"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_marginTop="8dp"
-        android:divider="#64ffffff"
-        android:dividerHeight="0.5dp"
-        android:padding="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/nameFooter"
-        app:layout_constraintTop_toBottomOf="@+id/table1"
-        tools:layout_editor_absoluteX="0dp" />
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="113dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="8dp"
+                    android:paddingLeft="10dp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView5"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/breeze" />
 
-    <ImageView
-        android:id="@+id/leftArrow"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="128dp"
-        android:onClick="onLeftArrowClick"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/temp"
-        app:srcCompat="@drawable/back" />
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="113dp"
+                    android:layout_height="24dp"
+                    android:paddingRight="4dp"
+                    android:textAlignment="center"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/imageView5"
+                    app:layout_constraintTop_toTopOf="@+id/imageView5"
+                    app:srcCompat="@drawable/thermometer3" />
 
-    <ImageView
-        android:id="@+id/rightArrow"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginEnd="16dp"
-        android:onClick="onRightArrowClick"
-        android:rotation="180"
-        app:layout_constraintBottom_toBottomOf="@+id/leftArrow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/leftArrow"
-        app:srcCompat="@drawable/back" />
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="113dp"
+                    android:layout_height="24dp"
+                    android:paddingLeft="10dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView3"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+                    app:srcCompat="@drawable/humidity3" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.967"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/location" />
+            </android.support.constraint.ConstraintLayout>
 
-</android.support.constraint.ConstraintLayout>
+
+            <TableRow>
+
+
+                <TextView
+                    android:id="@+id/windSpeed"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_margin="4dip"
+                    android:layout_weight="1"
+
+                    android:padding="10dip"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp"
+                    android:text="Sunny"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="#cdcdcd" />
+
+                <TextView
+                    android:id="@+id/humidity"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_margin="4dip"
+                    android:layout_weight="1"
+
+                    android:padding="10dip"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp"
+                    android:text="Sunny"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="#cdcdcd" />
+
+                <TextView
+                    android:id="@+id/minmax"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_column="3"
+                    android:layout_margin="4dip"
+                    android:layout_weight="1"
+                    android:padding="10dip"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp"
+                    android:text="25/23"
+                    android:textAlignment="center"
+                    android:textColor="#cdcdcd" />
+            </TableRow>
+
+
+        </TableLayout>
+
+
+        <TextView
+            android:id="@+id/nameFooter"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="#111947"
+            android:text="Debbie Adejumo S1719011"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <ExpandableListView
+            android:id="@+id/lvExp"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginTop="8dp"
+            android:divider="#64ffffff"
+            android:dividerHeight="0.5dp"
+            android:padding="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/nameFooter"
+            app:layout_constraintTop_toBottomOf="@+id/table1"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <ImageView
+            android:id="@+id/leftArrow"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="128dp"
+            android:onClick="onLeftArrowClick"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/temp"
+            app:srcCompat="@drawable/back" />
+
+        <ImageView
+            android:id="@+id/rightArrow"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="16dp"
+            android:onClick="onRightArrowClick"
+            android:rotation="180"
+            app:layout_constraintBottom_toBottomOf="@+id/leftArrow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/leftArrow"
+            app:srcCompat="@drawable/back" />
+
+        <android.support.constraint.Group
+            android:id="@+id/group2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
